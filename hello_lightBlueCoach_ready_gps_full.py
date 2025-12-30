@@ -459,7 +459,7 @@ def main():
 
         # Mode toggle: Manual vs Excel (for COACH only)
         ax_mode = plt.axes([0.05, 0.86, 0.24, 0.06])
-        btn_mode = Button(ax_mode, "Mode: Manual")
+        btn_mode = Button(ax_mode, "In Manual")
         src_mode = "Manual"
 
         # Excel config & state
@@ -516,18 +516,18 @@ def main():
                     return
                 src_mode = "Excel"; excel_idx = 0
                 n = len(excel_rows)
-                btn_mode.label.set_text("Mode: Excel")
-                ax.set_title(f"Mode: Excel (rows={n}) — Next row applies coach rotations from Excel; track stays manual.", fontsize=10)
+                btn_mode.label.set_text("from Excel")
+                ax.set_title(f"from Excel (rows={n}) — Next row applies coach rotations from Excel; track stays manual.", fontsize=10)
             else:
                 src_mode = "Manual"
-                btn_mode.label.set_text("Mode: Manual")
-                ax.set_title("Mode: Manual — Use text boxes and Apply.", fontsize=10)
+                btn_mode.label.set_text("In Manual")
+                ax.set_title("In Manual — Use text boxes and Apply.", fontsize=10)
             plt.draw()
         btn_mode.on_clicked(toggle_mode)
 
         # Next row (Excel)
         ax_next = plt.axes([0.80, 0.09, 0.14, 0.05])
-        btn_next = Button(ax_next, "Next row (Excel)")
+        btn_next = Button(ax_next, "xls next_row")
         def on_next(event):
             nonlocal excel_idx
             if src_mode != "Excel":
